@@ -1,11 +1,52 @@
+import java.lang.reflect.Array;
 import java.util.Scanner;
+import java.util.Arrays;
 public class math {
 
     public static void main(String args[]){
-        transformador();
+        //transformador();
+        matrixOperations();
 
     }
 
+    //Suma y resta de matrices
+    public static void matrixOperations(){
+        Scanner scan = new Scanner(System.in);
+        int sizeOfArrays;
+        System.out.println("Bienvenido a la aplicacion de suma y resta de matrices.");
+        System.out.println("#######################################################");
+        System.out.println("\nPor favor, introdusca el tamaño de las matrixes: ");
+        try {
+            sizeOfArrays = scan.nextInt();
+            int[] A = new int[sizeOfArrays];
+            int[] B = new int[sizeOfArrays];
+            int[] resultSuma = new int[sizeOfArrays];
+            int[] resultResta = new int[sizeOfArrays];
+                try {
+                    for (int i = 0; i < A.length; i++) {
+                        System.out.println("Por favor introdusca el numero " + (i + 1) + " del array A:");
+                        A[i] = scan.nextInt();
+                        System.out.println("Por favor introdusca el numero " + (i + 1) + " del array B:");
+                        B[i] = scan.nextInt();
+                    }
+                    for (int i = 0; i < resultSuma.length; i++){
+                        resultSuma[i] = (A[i] + B[i]);
+                        resultResta[i] = (A[i] - B[i]);
+                    }
+                    System.out.println("El resultado de tu suma es: " + Arrays.toString(resultSuma));
+                    System.out.println("El resultado de tu resta es: " + Arrays.toString(resultResta));
+                }catch (Exception e){
+                    System.out.println("Por favor introdusca valores validos.");
+                }
+
+
+        }catch (Exception e){
+            System.out.println(e);
+            System.out.println("Por favor introdusca un numero valido.");
+        }
+    }
+
+    //Transformador de longitudes
     public static void transformador(){
        double resultado =0;
         double x;
